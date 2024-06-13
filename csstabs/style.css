@@ -1,197 +1,96 @@
-:root {
-  --color1: #bddfdc;
-  --color2: #ff7f50;
-  --color3: #f4a460;
-  --color4: #ffffff;
-  --color5: #0f1010;
-  --color6: red;
-  --color7: #b0a6e8;
-  --color8: #ffe2d9;
-  --color9: #fff4e1;
-  --color10: #4f2c04;
-  --color11: #ffd046;
-  --color12: #e8e8e6;
-}
+/* For debug only */
+/* // * {
+    //   border: 1px solid black !important;  
+    //   padding: 1em;
+    // } */
+    
+    
+    .tabs {
+      /* Step 1: Enable Flex on the container */
+      display: flex;
+      
+      /* Step 2: Enable flex-wrap to put content section below tab label */
+      flex-wrap: wrap;
+    }
+    .tabs > section {  
+      /* Step 3: Move content <section> to the end, after the tab labels */
+      order: 999;
+      
+      /* Step 4: Make sure the content <section> is 100% width */
+      width: 100%;
+      
+      /* Step 5: Hide all content <section> by default */
+      display: none;
+    }
+    .tabs > input {
+      /* display: none; Don’t use display:none. Bad for accessibility */
+      
+      /* Step 6: Hide the radio inputs */
+      opacity: 0;
+      
+      /* Step 7: Make sure the radio inputs don’t take up space in layout */
+      position: absolute;
+    }
+    /* Step 8: Select the label right next to the selected input */
+    .tabs > input[type=radio]:checked + label {
+      /* Step 9: Highlight the selected label */
+      background: rgb(245, 8, 237);
+    }
+    /* Step 10: Select the section right next to the label which is next to the selected input */
+    .tabs > input[type=radio]:checked + label + section {
+      /* Step 11: Unset the 'display:none' we did in step 5 */
+      display: unset;
+    }
+    
+    /* Done. Make sure to disable the debug code at the beginning of CSS. And now it is time to make the tabs look good */
+    
+    /* Make the tabs look good */
+    /* Final Step: Make the tabs pretty with padding and colors */
+    
+    .tabs > label {
+      padding: .5em 1em;
+      /* background: #b4d5e4; */
+      border-right: 1px solid #798f99;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
 
-body {
-  background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
-  /* ccc;  */
-  background-repeat: no-repeat;
-  font: 400 16px/1.5em "Open Sans", sans-serif;
-}
-.page-content {
-  max-width: 1200px;
-  margin: 32px auto;
-  /* padding: 32px; */
-  background: #fff;
-}
+    .tabs > label:hover {
+        cursor: pointer;
+        background-color: black !important;
+        color: white;
+        transition: all .3s;
+    }
 
-a {
-  color: #21d4fd;
-  transition: all 0.3s;
-}
-a:hover {
-  color: #b721ff;
-}
+  .tabs > label:nth-of-type(1),
+  .tabs > label:nth-of-type(4) {    
+    background-color: red;
+  }
+  .tabs > label:nth-of-type(2), 
+  .tabs > label:nth-of-type(5) {    
+    background-color: rgb(33, 203, 14);
+  }
+  .tabs > label:nth-of-type(3),
+  .tabs > label:nth-of-type(6) {    
+    background-color: rgb(60, 6, 220);
+    color: white;
+  }
 
-.tabbed {
-  overflow-x: hidden; /* so we could easily hide the radio inputs */
-  margin: 32px 0;
-  padding: 0 2px 16px 2px;
-  border-bottom: 1px solid #ccc;
-}
-
-.tabbed [type="radio"] {
-  /* hiding the inputs fg */
-  display: none;
-}
-
-.tabs {
-  display: flex;
-  align-items: stretch;
-  list-style: none;
-  padding: 0;
-  border-bottom: 1px solid #ccc;
-  margin: 0;
-}
-
-ul.tabs {
-  border-bottom-color: #b721ff;
-}
-
-.tab > label {
-  display: block;
-  /* margin-bottom: -1px; */
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-top: solid 3px transparent;
-  border-bottom-color: #b721ff;
-  background: #eee;
-  color: #666;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.tab:nth-of-type(1) > label {
-  color: var(--color5);
-  background-color: var(--color1) !important;
-}
-
-.tab:nth-of-type(2) > label {
-  color: var(--color5);
-  background-color: var(--color3) !important;
-}
-
-.tab:nth-of-type(3) > label {
-  color: var(--color5);
-  background-color: var(--color12) !important;
-}
-
-.tab:nth-of-type(4) > label {
-  color: var(--color5);
-  background-color: var(--color9) !important;
-}
-
-.tab:nth-of-type(5) > label {
-  color: var(--color5);
-  background-color: var(--color8) !important;
-}
-
-.tab:nth-of-type(6) > label {
-  color: var(--color5);
-  background-color: var(--color7) !important;
-}
-
-.tab:hover > label {
-  border-top: solid 3px #333;
-  color: var(--color6);
-}
-
-.tab-content {
-  display: none;
-  /* color: #eb13bc; */
-  border-left: 1px solid #b721ff;
-  border-right: 1px solid #b721ff;
-  border-bottom: 1px solid #b721ff;
-  padding-top: 1px;
-}
-
-/* .tab-content h4 {
-  margin-top: -18px;
-} */
-/* As we cannot replace the numbers with variables or calls to element properties, the number of this selector parts is our tab count limit */
-.tabbed [type="radio"]:nth-of-type(1):checked ~ .tabs .tab:nth-of-type(1) label,
-.tabbed [type="radio"]:nth-of-type(2):checked ~ .tabs .tab:nth-of-type(2) label,
-.tabbed [type="radio"]:nth-of-type(3):checked ~ .tabs .tab:nth-of-type(3) label,
-.tabbed [type="radio"]:nth-of-type(4):checked ~ .tabs .tab:nth-of-type(4) label,
-.tabbed [type="radio"]:nth-of-type(5):checked ~ .tabs .tab:nth-of-type(5) label,
-.tabbed
-  [type="radio"]:nth-of-type(6):checked
-  ~ .tabs
-  .tab:nth-of-type(6)
-  label {
-  border-bottom-color: #fff;
-  border-top-color: #b721ff;
-  border-left-color: #b721ff;
-  border-right-color: #b721ff;
-
-  background: #fff;
-  color: #222;
-}
-
-.tabbed [type="radio"]:nth-of-type(1):checked ~ .tab-content:nth-of-type(1),
-.tabbed [type="radio"]:nth-of-type(2):checked ~ .tab-content:nth-of-type(2),
-.tabbed [type="radio"]:nth-of-type(3):checked ~ .tab-content:nth-of-type(3),
-.tabbed [type="radio"]:nth-of-type(4):checked ~ .tab-content:nth-of-type(4),
-.tabbed [type="radio"]:nth-of-type(5):checked ~ .tab-content:nth-of-type(5),
-.tabbed [type="radio"]:nth-of-type(6):checked ~ .tab-content:nth-of-type(6) {
-  /* .tabbed [type="radio"]:nth-of-type(7):checked ~ .tab-content:nth-of-type(7) { */
-  display: block;
-}
-
-div.tab-content:nth-of-type(1) {
-  color: var(--color5);
-  background-color: var(--color1);
-  box-shadow: inset 0 0 10px var(--color5), inset 0 3px 30px var(--color3),
-    0 0 50px rgba(0, 0, 0, 0.8), 0 30px 30px rgba(0, 0, 0, 0.7);
-}
-
-div.tab-content:nth-of-type(2) {
-  color: var(--color5);
-  background-color: var(--color4);
-  box-shadow: inset 0 0 10px var(--color5), inset 0 3px 30px var(--color3),
-    0 0 50px rgba(0, 0, 0, 0.8), 0 30px 30px rgba(0, 0, 0, 0.7);
-}
-
-div.tab-content:nth-of-type(3) {
-  color: var(--color5);
-  background-color: var(--color12);
-  box-shadow: inset 0 0 10px var(--color5), inset 0 3px 30px var(--color9),
-    0 0 50px rgba(0, 0, 0, 0.8), 0 30px 30px rgba(0, 0, 0, 0.7);
-}
-div.tab-content:nth-of-type(4) {
-  color: var(--color5);
-  background-color: var(--color9);
-  box-shadow: inset 0 0 10px var(--color6), inset 0 3px 30px var(--color5),
-    0 0 50px rgba(0, 0, 0, 0.8), 0 30px 30px rgba(0, 0, 0, 0.7);
-}
-
-div.tab-content:nth-of-type(5) {
-  color: var(--color5);
-  background-color: var(--color8);
-  box-shadow: inset 0 0 10px var(--color3), inset 0 3px 30px var(--color6),
-    0 0 50px rgba(0, 0, 0, 0.8), 0 30px 30px rgba(0, 0, 0, 0.7);
-}
-
-div.tab-content:nth-of-type(6) {
-  color: var(--color5);
-  background-color: var(--color7);
-  box-shadow: inset 0 0 10px var(--color6), inset 0 3px 30px var(--color10),
-    0 0 50px rgba(0, 0, 0, 0.8), 0 30px 30px rgba(0, 0, 0, 0.7);
-}
+    .tabs > label:last-of-type {
+      border-right: none;
+    }
+    .tabs > input[type=radio]:checked + label {
+      background: #09a4ec;
+      /* border-bottom: 5px solid transparent; */
+    } 
+    
+    .tabs section {
+      border: 1px #798f99 solid;
+      /* border-top: 5px #798f99 solid;  */
+      padding: 1em;
+    }
+    
+    
+    body {
+      padding: 2em;
+    }
