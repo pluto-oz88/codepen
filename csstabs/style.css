@@ -40,15 +40,17 @@
   border-top-right-radius: 8px;
 }
 
-.tabs > label:hover {
+.tabs > label:hover,
+label#tab7-label:hover {
   cursor: pointer;
-  background-color: var(--col6);
+  background-color: var(--col5) !important;
   color: white;
   transition: all 0.3s;
 }
 
 .tabs > label:nth-of-type(1),
-.tabs > label:nth-of-type(4) {
+.tabs > label:nth-of-type(4),
+label#tab7-label {
   background-color: var(--col2);
 }
 .tabs > label:nth-of-type(2),
