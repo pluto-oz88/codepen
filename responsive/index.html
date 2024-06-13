@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin-inline: auto;
+      }
+      .grid {
+        display: grid;
+      }
+
+      .grid-container--fill {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+
+      .grid-container--fit {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .grid-element {
+        background-color: deepPink;
+        padding: 20px;
+        color: #fff;
+        border: 1px solid #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      auto-fill
+      <div class="grid grid-container--fill">
+        <div class="grid-element">
+          1<br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
+          amet optio vel a sed natus totam mollitia fugit quam doloribus culpa
+          blanditiis provident illum itaque autem eveniet ea sapiente nobis id,
+          expedita, asperiores in tenetur nisi quod. Temporibus aperiam nihil,
+          voluptatibus beatae saepe nostrum quos similique iure fugit, ipsum
+          modi?
+        </div>
+        <div class="grid-element">
+          2<br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
+          amet optio vel a sed natus totam mollitia fugit quam doloribus culpa
+          blanditiis provident illum itaque autem eveniet ea sapiente nobis id,
+          expedita, asperiores in tenetur nisi quod. Temporibus aperiam nihil,
+          voluptatibus beatae saepe nostrum quos similique iure fugit, ipsum
+          modi?
+        </div>
+        <div class="grid-element">
+          3<br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
+          amet optio vel a sed natus totam mollitia fugit quam doloribus culpa
+          blanditiis provident illum itaque autem eveniet ea sapiente nobis id,
+          expedita, asperiores in tenetur nisi quod. Temporibus aperiam nihil,
+          voluptatibus beatae saepe nostrum quos similique iure fugit, ipsum
+          modi?
+        </div>
+        <div class="grid-element">
+          4<br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
+          amet optio vel a sed natus totam mollitia fugit quam doloribus culpa
+          blanditiis provident illum itaque autem eveniet ea sapiente nobis id,
+          expedita, asperiores in tenetur nisi quod. Temporibus aperiam nihil,
+          voluptatibus beatae saepe nostrum quos similique iure fugit, ipsum
+          modi?
+        </div>
+
+        <div class="grid-element">
+          5<br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
+          amet optio vel a sed natus totam mollitia fugit quam doloribus culpa
+          blanditiis provident illum itaque autem eveniet ea sapiente nobis id,
+          expedita, asperiores in tenetur nisi quod. Temporibus aperiam nihil,
+          voluptatibus beatae saepe nostrum quos similique iure fugit, ipsum
+          modi?
+        </div>
+        <div class="grid-element">
+          6<br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
+          amet optio vel a sed natus totam mollitia fugit quam doloribus culpa
+          blanditiis provident illum itaque autem eveniet ea sapiente nobis id,
+          expedita, asperiores in tenetur nisi quod. Temporibus aperiam nihil,
+          voluptatibus beatae saepe nostrum quos similique iure fugit, ipsum
+          modi?
+        </div>
+        <div class="grid-element">
+          7<br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
+          amet optio vel a sed natus totam mollitia fugit quam doloribus culpa
+          blanditiis provident illum itaque autem eveniet ea sapiente nobis id,
+          expedita, asperiores in tenetur nisi quod. Temporibus aperiam nihil,
+          voluptatibus beatae saepe nostrum quos similique iure fugit, ipsum
+          modi?
+        </div>
+        <div class="grid-element">8</div>
+        <div class="grid-element">9</div>
+        <div class="grid-element">10</div>
+        <div class="grid-element">11</div>
+        <div class="grid-element">12</div>
+        <div class="grid-element">13</div>
+        <div class="grid-element">14</div>
+        <div class="grid-element">15</div>
+        <div class="grid-element">16</div>
+        <div class="grid-element">17</div>
+        <div class="grid-element">18</div>
+        <div class="grid-element">19</div>
+        <div class="grid-element">20</div>
+        <div class="grid-element">21</div>
+        <div class="grid-element">22</div>
+        <div class="grid-element">23</div>
+        <div class="grid-element">24</div>
+        <div class="grid-element">25</div>
+        <div class="grid-element">26</div>
+        <div class="grid-element">27</div>
+      </div>
+      autofit
+      <div class="grid grid-container--fit">
+        <div class="grid-element">
+          1<br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
+          amet optio vel a sed natus totam mollitia fugit quam doloribus culpa
+          blanditiis provident illum itaque autem eveniet ea sapiente nobis id,
+          expedita, asperiores in tenetur nisi quod. Temporibus aperiam nihil,
+          voluptatibus beatae saepe nostrum quos similique iure fugit, ipsum
+          modi?
+        </div>
+        <div class="grid-element">
+          2<br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
+          amet optio vel a sed natus totam mollitia fugit quam doloribus culpa
+          blanditiis provident illum itaque autem eveniet ea sapiente nobis id,
+          expedita, asperiores in tenetur nisi quod. Temporibus aperiam nihil,
+          voluptatibus beatae saepe nostrum quos similique iure fugit, ipsum
+          modi?
+        </div>
+        <div class="grid-element">
+          3<br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
+          amet optio vel a sed natus totam mollitia fugit quam doloribus culpa
+          blanditiis provident illum itaque autem eveniet ea sapiente nobis id,
+          expedita, asperiores in tenetur nisi quod. Temporibus aperiam nihil,
+          voluptatibus beatae saepe nostrum quos similique iure fugit, ipsum
+          modi?
+        </div>
+        <div class="grid-element">
+          4<br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
+          amet optio vel a sed natus totam mollitia fugit quam doloribus culpa
+          blanditiis provident illum itaque autem eveniet ea sapiente nobis id,
+          expedita, asperiores in tenetur nisi quod. Temporibus aperiam nihil,
+          voluptatibus beatae saepe nostrum quos similique iure fugit, ipsum
+          modi?
+        </div>
+        <div class="grid-element">
+          5<br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
+          amet optio vel a sed natus totam mollitia fugit quam doloribus culpa
+          blanditiis provident illum itaque autem eveniet ea sapiente nobis id,
+          expedita, asperiores in tenetur nisi quod. Temporibus aperiam nihil,
+          voluptatibus beatae saepe nostrum quos similique iure fugit, ipsum
+          modi?
+        </div>
+        <div class="grid-element">
+          6<br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
+          amet optio vel a sed natus totam mollitia fugit quam doloribus culpa
+          blanditiis provident illum itaque autem eveniet ea sapiente nobis id,
+          expedita, asperiores in tenetur nisi quod. Temporibus aperiam nihil,
+          voluptatibus beatae saepe nostrum quos similique iure fugit, ipsum
+          modi?
+        </div>
+        <div class="grid-element">
+          7<br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
+          amet optio vel a sed natus totam mollitia fugit quam doloribus culpa
+          blanditiis provident illum itaque autem eveniet ea sapiente nobis id,
+          expedita, asperiores in tenetur nisi quod. Temporibus aperiam nihil,
+          voluptatibus beatae saepe nostrum quos similique iure fugit, ipsum
+          modi?
+        </div>
+        <div class="grid-element">8</div>
+        <div class="grid-element">9</div>
+        <div class="grid-element">10</div>
+        <div class="grid-element">11</div>
+        <div class="grid-element">12</div>
+        <div class="grid-element">13</div>
+        <div class="grid-element">14</div>
+        <div class="grid-element">15</div>
+        <div class="grid-element">16</div>
+        <div class="grid-element">17</div>
+        <div class="grid-element">18</div>
+        <div class="grid-element">19</div>
+        <div class="grid-element">20</div>
+        <div class="grid-element">21</div>
+        <div class="grid-element">22</div>
+        <div class="grid-element">23</div>
+        <div class="grid-element">24</div>
+        <div class="grid-element">25</div>
+        <div class="grid-element">26</div>
+        <div class="grid-element">27</div>
+      </div>
+    </div>
+  </body>
+</html>
