@@ -11,9 +11,6 @@
 <body>
   <h1>Example of CSS-only tabs</h1>
   <div class='tabs'>
-    <!-- Flattern structure for adjacent sibling combinator -->
-
-    <!-- Tab 1 & Content -->
     <input type="radio" name="tab" id="tab1" role="tab" checked>
     <label for="tab1" id="tab1-label">Tab 1</label>
     <section aria-labelledby="tab1-label">
@@ -21,7 +18,6 @@
       <p>Grohe K200 31656AT0 Composite Sink Granite Grey</p>
     </section>
 
-    <!-- Tab 2 & Content -->
     <input type="radio" name="tab" id="tab2" role="tab">
     <label for="tab2" id="tab2-label">Tab 2</label>
     <section aria-labelledby="tab2-label">
@@ -29,7 +25,6 @@
       <p>Hello World</p>
     </section>
 
-    <!-- Tab 3 & Content -->
     <input type="radio" name="tab" id="tab3" role="tab">
     <label for="tab3" id="tab3-label">Tab 3</label>
     <section aria-labelledby="tab3-label">
@@ -37,7 +32,6 @@
       <p>Hello World</p>
     </section>
 
-    <!-- Tab 4 & Content -->
     <input type="radio" name="tab" id="tab4" role="tab">
     <label for="tab4">Tab 4</label>
     <section>
@@ -45,7 +39,6 @@
       <p>Hello World</p>
     </section>
 
-    <!-- Tab 5 & Content -->
     <input type="radio" name="tab" id="tab5" role="tab">
     <label for="tab5" id="tab5-label">Tab 5</label>
     <section aria-labelledby="tab5-label">
@@ -53,7 +46,6 @@
       <p>Hello World</p>
     </section>
 
-    <!-- Tab 6 & Content -->
     <input type="radio" name="tab" id="tab6" role="tab">
     <label for="tab6">Tab 6</label>
     <section>
