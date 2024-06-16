@@ -1,4 +1,22 @@
 /* Android 2.3 :checked fix */
+:root {
+  --col1: #bddfdc;
+  --col2: #ff7f50;
+  --col3: #f4a460;
+  --col4: #ffffff;
+  --col5: #0f1010;
+  --col6: rgb(190, 205, 179);
+  --col7: #9e90f0;
+  --col8: #ffe2d9;
+  --col9: #fff4e1;
+}
+
+body {
+  background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+  background-repeat: no-repeat;
+  font: 400 16px/1.5em "Open Sans", sans-serif;
+}
+
 @keyframes fake {
   from {
     opacity: 1;
@@ -13,7 +31,7 @@ body {
 
 .worko-tabs {
   margin: 20px;
-  width: 80%;
+  width: 90%;
 }
 .worko-tabs .state {
   position: absolute;
@@ -29,7 +47,7 @@ body {
   max-height: 40px;
 }
 .worko-tabs .flex-tabs .panel {
-  background-color: #fff;
+  background-color: var(--col8);
   padding: 20px;
   min-height: 300px;
   display: none;
@@ -40,7 +58,7 @@ body {
   display: inline-block;
   padding: 10px;
   vertical-align: top;
-  background-color: #eee;
+  background-color: var(--col8);
   cursor: hand;
   cursor: pointer;
   border-left: 10px solid #ccc;
