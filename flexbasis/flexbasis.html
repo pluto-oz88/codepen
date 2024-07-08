@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .column,
+      .row {
+        display: flex;
+        gap: 1rem;
+        border: 2px solid black;
+        padding: 1rem;
+      }
+
+      .column {
+        flex-direction: column;
+      }
+
+      .flex-item {
+        /* flex-basis: 200px; */
+        flex-basis: 200px;
+        border: 2px solid rgb(243, 14, 14);
+        padding: 1rem;
+      }
+
+      .card {
+        width: 30%;
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="flex-item">a</div>
+      <div class="flex-item">b</div>
+    </div>
+    <br />
+    <div class="column">
+      <div class="flex-item">a</div>
+      <div class="flex-item">b</div>
+    </div>
+    <br />
+    <div class="card">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae
+      voluptatem aliquam ratione nostrum nesciunt placeat vero tenetur, unde
+      corrupti, suscipit enim, sequi temporibus minus dolorem perferendis
+      reiciendis! Minus voluptatum, quibusdam fugit aliquid consequuntur nostrum
+      porro et architecto ea praesentium laboriosam sapiente soluta molestiae
+      doloribus, assumenda, delectus velit reiciendis inventore numquam
+      provident natus rerum. Pariatur voluptatibus animi possimus qui ut sunt a
+      atque laborum vero accusamus, illo, fuga velit doloremque quisquam!
+    </div>
+  </body>
+</html>
