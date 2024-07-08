@@ -23,7 +23,7 @@
 
       .flex-item {
         /* flex-basis: 200px; */
-        flex-basis: 200px;
+        flex: 0 0 30vh;
         border: 2px solid rgb(243, 14, 14);
         padding: 1rem;
       }
@@ -31,6 +31,7 @@
       .card {
         width: 30%;
         display: -webkit-box;
+        line-clamp: 6;
         -webkit-line-clamp: 6;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -39,12 +40,12 @@
   </head>
   <body>
     <div class="row">
-      <div class="flex-item">a</div>
+      <div class="flex-item">abracadabra</div>
       <div class="flex-item">b</div>
     </div>
     <br />
     <div class="column">
-      <div class="flex-item">a</div>
+      <div class="flex-item">abracadaver</div>
       <div class="flex-item">b</div>
     </div>
     <br />
