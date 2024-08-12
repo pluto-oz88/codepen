@@ -19,11 +19,6 @@
 </head>
 
 <body>
-    <h1>Modals the <em>easy</em> way</h1>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error suscipit perspiciatis quia fuga vero architecto est minima possimus quo cumque! </p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error suscipit perspiciatis quia fuga vero architecto est minima possimus quo cumque! </p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error suscipit perspiciatis quia fuga vero architecto est minima possimus quo cumque! </p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error suscipit perspiciatis quia fuga vero architecto est minima possimus quo cumque! </p>
     <button class="button open-button">Open Modal</button>
 
     <dialog class="modal" id="modal">

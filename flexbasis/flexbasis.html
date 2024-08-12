@@ -7,14 +7,16 @@
     <style>
       * {
         box-sizing: border-box;
+        padding: 0;
+        margin: 0;
       }
 
       .column,
       .row {
         display: flex;
-        gap: 1rem;
+        /* gap: 1rem;
         border: 2px solid black;
-        padding: 1rem;
+        padding: 1rem; */
       }
 
       .column {
@@ -23,7 +25,8 @@
 
       .flex-item {
         /* flex-basis: 200px; */
-        flex: 0 0 30vh;
+        /* flex: 0 0 30vh; */
+        flex-basis: 1 1 50%;
         border: 2px solid rgb(243, 14, 14);
         padding: 1rem;
       }
@@ -36,17 +39,81 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
+
+      .grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-auto-rows: 200px;
+      }
+
+      .grid > * {
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        border-radius: 50%;
+      }
+
+      .grid > *:nth-of-type(1) {
+        background-color: red;
+      }
+      .grid > *:nth-of-type(2) {
+        background-color: yellow;
+      }
+      .grid > *:nth-of-type(3) {
+        background-color: blue;
+      }
+      .grid > *:nth-of-type(4) {
+        background-color: green;
+      }
+      .grid > *:nth-of-type(5) {
+        background-color: yellow;
+      }
+      .grid > *:nth-of-type(6) {
+        background-color: blue;
+      }
+      .grid > *:nth-of-type(7) {
+        background-color: green;
+      }
+      .container {
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      .table-of-contents {
+        flex: 0 1 auto;
+      }
+
+      .content {
+        flex: 1 1 20rem;
+      }
     </style>
   </head>
   <body>
     <div class="row">
       <div class="flex-item">abracadabra</div>
       <div class="flex-item">b</div>
+      <div class="flex-item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+        repudiandae harum eaque nobis quos qui distinctio reiciendis ipsam
+        incidunt non enim ipsum, iure similique nulla amet voluptatem porro cum
+        hic iusto praesentium! Similique molestias aliquam veniam corporis sequi
+        corrupti! Quod.
+      </div>
     </div>
     <br />
     <div class="column">
       <div class="flex-item">abracadaver</div>
       <div class="flex-item">b</div>
+      <div class="flex-item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+        repudiandae harum eaque nobis quos qui distinctio reiciendis ipsam
+        incidunt non enim ipsum, iure similique nulla amet voluptatem porro cum
+        hic iusto praesentium! Similique molestias aliquam veniam corporis sequi
+        corrupti! Quod.
+      </div>
     </div>
     <br />
     <div class="card">
@@ -58,6 +125,53 @@
       doloribus, assumenda, delectus velit reiciendis inventore numquam
       provident natus rerum. Pariatur voluptatibus animi possimus qui ut sunt a
       atque laborum vero accusamus, illo, fuga velit doloremque quisquam!
+    </div>
+
+    <div class="grid">
+      <p>1</p>
+      <p>
+        2-Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+        repudiandae harum eaque nobis quos qui distinctio reiciendis ipsam
+        incidunt non enim ipsum, iure similique nulla amet voluptatem porro cum
+        hic iusto praesentium! Similique molestias aliquam veniam corporis sequi
+        corrupti! Quod.
+      </p>
+      <p>3</p>
+      <p>4</p>
+      <p>5</p>
+      <p>6</p>
+    </div>
+
+    <div class="container">
+      <div class="table-of-contents">
+        <h2>Contents</h2>
+        <ul>
+          <li>Introduction</li>
+          <li>Getting Started</li>
+          <li>Common use cases</li>
+          <li>Troubleshooting</li>
+        </ul>
+      </div>
+      <div class="content">
+        <h2>Introduction</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+          quidem nesciunt, maxime ipsa odit possimus illum, recusandae veritatis
+          assumenda quae corporis laudantium accusantium minima ipsum nostrum
+          asperiores error. Repudiandae voluptate fugit cum deleniti non
+          consectetur nostrum, reiciendis impedit vero ea sequi blanditiis
+          tenetur reprehenderit dolorem nihil! Sed molestias minus animi.
+        </p>
+        <h2>Getting Started</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa iusto
+          ea nam dolore consequuntur. Quisquam minima quia temporibus illo nobis
+          atque. Similique velit distinctio rem voluptatum, adipisci odit eos
+          quam placeat tempore harum, maxime exercitationem quisquam nesciunt
+          corporis corrupti deleniti laborum. Fuga laboriosam consequuntur, quia
+          tempore corrupti nisi magnam architecto.
+        </p>
+      </div>
     </div>
   </body>
 </html>

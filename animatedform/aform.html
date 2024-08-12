@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aform</title>
+    <style>
+      body {
+        background-color: black;
+        padding: 10px;
+        color: #fff;
+      }
+
+      .input-container {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      .input-field {
+        width: 200px;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        background-color: #fff;
+        transition: box-shadow 0.3s;
+        font-size: 16px;
+        outline: none;
+      }
+
+      .input-label {
+        position: absolute;
+        color: #999;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        transition: top 0.3s, font-size 0.3s, color 0.3s;
+      }
+
+      .input-field:focus + .input-label,
+      .input-field:not(:placeholder-shown) + .input-label {
+        top: -10%;
+        font-size: 12px;
+        color: #000;
+        padding: 3px;
+        background-color: #17c7e6;
+        border-radius: 3px;
+        font-weight: 700;
+      }
+
+      .input-field:hover {
+        background-color: aquamarine;
+      }
+
+      spong {
+        position: absolute;
+        display: inline-block;
+        font-size: 50px;
+        top: 50px;
+        border: 2px solid #fff;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="input-container">
+      <input type="text" id="username" class="input-field" placeholder=" " />
+      <label for="username" class="input-label">User name</label>
+    </div>
+    <div class="input-container">
+      <input
+        type="password"
+        id="password"
+        class="input-field"
+        placeholder=" "
+      />
+      <label for="password" class="input-label">Password</label>
+      <spong>We might need it</spong>
+      <span>next after wards</span>
+    </div>
+  </body>
+</html>

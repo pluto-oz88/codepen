@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>PicUploads</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <form
+        class="form-upload"
+        action="gdnew.php"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <h3>Multiple File Upload</h3>
+
+        <label style="background-color: aquamarine; cursor: pointer">
+          <input type="file" name="files[]" multiple />Select files to upload
+        </label>
+
+        <button type="submit" name="submit" value="Upload">
+          Upload file(s)
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

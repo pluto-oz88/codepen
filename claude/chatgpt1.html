@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Photo Carousel</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #000;
+      }
+
+      .carousel-container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        max-height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .carousel {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        height: 100%;
+      }
+
+      .carousel img {
+        width: 100vw;
+        height: 100vh;
+        object-fit: contain;
+        max-width: 50%;
+        max-height: auto;
+      }
+
+      .arrow {
+        position: absolute;
+        top: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        z-index: 1000;
+        transform: translateY(-50%);
+      }
+
+      .arrow.left {
+        left: 20px;
+      }
+
+      .arrow.right {
+        right: 20px;
+      }
+
+      .control-button {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        background-color: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        z-index: 1000;
+      }
+
+      .control-button.paused {
+        background-color: red;
+      }
+
+      @media (max-width: 768px) {
+        .arrow {
+          width: 35px;
+          height: 35px;
+        }
+
+        .control-button {
+          padding: 8px 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .arrow {
+          width: 30px;
+          height: 30px;
+        }
+
+        .control-button {
+          padding: 6px 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel-container" id="carousel-container">
+      <div class="carousel" id="carousel">
+        <img src="https://picsum.photos/800/400?random=1" alt="Image 1" />
+        <img src="https://picsum.photos/800/400?random=2" alt="Image 2" />
+        <img src="https://picsum.photos/800/400?random=3" alt="Image 3" />
+        <img src="https://picsum.photos/800/400?random=4" alt="Image 4" />
+        <img src="https://picsum.photos/800/400?random=5" alt="Image 5" />
+        <img src="../photos/image003.jpg" alt="Image 03" />
+        <img
+          src="https://via.placeholder.com/1920x1080/FF0000/FFFFFF?text=Slide+1"
+          alt="Slide 1"
+        />
+        <img
+          src="https://via.placeholder.com/1920x1080/00FF00/FFFFFF?text=Slide+2"
+          alt="Slide 2"
+        />
+        <img
+          src="https://via.placeholder.com/1920x1080/0000FF/FFFFFF?text=Slide+3"
+          alt="Slide 3"
+        />
+      </div>
+      <button class="arrow left" id="prev">&#10094;</button>
+      <button class="arrow right" id="next">&#10095;</button>
+      <button class="control-button" id="control-button">Pause</button>
+    </div>
+
+    <script>
+      const carousel = document.getElementById("carousel");
+      const slides = carousel.querySelectorAll("img");
+      const totalSlides = slides.length;
+      let currentIndex = 0;
+      let autoScroll;
+      const controlButton = document.getElementById("control-button");
+      let isPaused = false;
+
+      const startAutoScroll = () => {
+        autoScroll = setInterval(() => {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          updateCarousel();
+        }, 3000);
+        controlButton.textContent = "Pause";
+        controlButton.classList.remove("paused");
+        isPaused = false;
+      };
+
+      const stopAutoScroll = () => {
+        clearInterval(autoScroll);
+        controlButton.textContent = "Start";
+        controlButton.classList.add("paused");
+        isPaused = true;
+      };
+
+      const updateCarousel = () => {
+        carousel.style.transform = `translateX(-${currentIndex * 100}vw)`;
+      };
+
+      document.getElementById("prev").addEventListener("click", () => {
+        stopAutoScroll();
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+        startAutoScroll();
+      });
+
+      document.getElementById("next").addEventListener("click", () => {
+        stopAutoScroll();
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+        startAutoScroll();
+      });
+
+      controlButton.addEventListener("click", () => {
+        if (isPaused) {
+          startAutoScroll();
+        } else {
+          stopAutoScroll();
+        }
+      });
+
+      document
+        .getElementById("carousel-container")
+        .addEventListener("click", stopAutoScroll);
+
+      window.onload = startAutoScroll;
+    </script>
+  </body>
+</html>
