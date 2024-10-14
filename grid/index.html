@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* @link https://utopia.fyi/grid/calculator?c=602,22,1.667,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=utm_campaign=On%20my%20way%20back%20from%20Smashing%20Conf%20-%2015304699,l,xl,12 */
+
+:root {
+  --grid-max-width: 77.50rem;
+  --grid-gutter: var(--space-s-l, clamp(1.375rem, 0.3135rem + 2.8213vw, 2.5rem));
+  --grid-columns: 12;
+}
+
+.u-container {
+  max-width: var(--grid-max-width);
+  padding-inline: var(--grid-gutter);
+  margin-inline: auto;
+  border: 1px solid red;
+}
+
+.u-grid {
+  display: grid;
+  gap: var(--grid-gutter);  
+  border: 1px solid hsl(124, 83%, 47%);
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+  </style>
+</head>
+<body>
+
+  <div class="u-grid">
+    <div class="u-container">A</div>
+    <div class="u-container">B</div>
+    <div class="u-container">C</div>
+    <div class="u-container">D</div>
+    <div class="u-container">E</div>
+    <div class="u-container">F</div>
+    <div class="u-container">G</div>
+    <div class="u-container">H</div>
+    <div class="u-container">I</div>
+    <div class="u-container">J</div>
+    <div class="u-container">K</div>
+    <div class="u-container">L</div>
+  </div>
+  
+</body>
+</html>

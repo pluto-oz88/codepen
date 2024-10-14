@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap&family=Patrick+Hand+SC&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Asap", sans-serif;
+  font-family: Arial, sans-serif;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  overflow-x: hidden;
+  color: white;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+body::before {
+  content: "";
+  position: absolute; /* or fixed */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%; /* or 100vh */
+  min-height: 100vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  background-image: url("https://images.unsplash.com/photo-1625496235025-d783abf061c8?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTE5MTIwMzV8&ixlib=rb-4.0.3&q=85");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: screen;
+}
+
+main {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+footer {
+  position: relative;
+  font-family: "Asap", sans-serif;
+  margin: 1rem 0;
+  color: #555;
+}
+
+a {
+  color: currentColor;
+  font-weight: bold;
+}
+
+#gallery {
+  --size: 200px;
+  --gap: 10px;
+  --space: 5px;
+  --angle: 0deg;
+  position: relative;
+  width: min(100%, 1000px);
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--size), 1fr));
+  gap: var(--gap);
+  padding: var(--gap);
+  overflow: hidden;
+  -webkit-filter: drop-shadow(0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5));
+}
+
+@media (max-width: 700px) {
+  #gallery {
+    --size: 170px;
+  }
+}
+.card {
+  --img: url();
+  --pin-x: 50%;
+  --pin-y: 0.5rem;
+  --pin-angle: 10deg;
+  --pin-color: crimson;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1.25;
+  padding: 0.75rem;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background-color: papayawhip;
+  background-color: #eedfc7;
+  background-image: var(--img);
+  background-position: center;
+  background-size: cover;
+  -webkit-filter: url(#filter_tornpaper);
+          filter: url(#filter_tornpaper);
+  -webkit-transform-origin: var(--pin-x) var(--pin-y);
+          transform-origin: var(--pin-x) var(--pin-y);
+  -webkit-transform: rotate3d(0, 0, 1, var(--pin-angle));
+          transform: rotate3d(0, 0, 1, var(--pin-angle));
+  isolation: isolate;
+}
+
+.card:after {
+  position: absolute;
+  top: var(--pin-y);
+  left: var(--pin-x);
+  width: 0.7rem;
+  height: 0.7rem;
+  content: "";
+  background: var(--pin-color);
+  border-radius: 50%;
+  -webkit-box-shadow: -0.1rem -0.1rem 0.3rem 0.02rem rgba(0, 0, 0, 0.5) inset;
+          box-shadow: -0.1rem -0.1rem 0.3rem 0.02rem rgba(0, 0, 0, 0.5) inset;
+  -webkit-filter: drop-shadow(0.3rem 0.15rem 0.2rem rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(0.3rem 0.15rem 0.2rem rgba(0, 0, 0, 0.5));
+}
+
+article:nth-child(7n of .card) {
+  --pin-color: orangered;
+  --pin-angle: 5deg;
+}
+
+article:nth-child(7n+1 of .card) {
+  --pin-color: gold;
+  --pin-angle: -2deg;
+  /* text-transform: lowercase !important; */
+}
+
+article:nth-child(7n+2 of .card) {
+  --pin-color: crimson;
+  --pin-angle: 3deg;
+}
+
+article:nth-child(7n+3 of .card) {
+  --pin-color: skyblue;
+  --pin-angle: -3deg;
+}
+
+article:nth-child(7n+4 of .card) {
+  --pin-color: deeppink;
+  --pin-angle: -5deg;
+}
+
+article:nth-child(7n+5 of .card) {
+  --pin-color: orchid;
+  --pin-angle: 2deg;
+}
+
+article:nth-child(7n+6 of .card) {
+  --pin-color: springgreen;
+  --pin-angle: 5deg;
+}
+
+.card h2 {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
+  
+}
+
+.card * {
+  overflow-wrap: anywhere;
+  mix-blend-mode: difference;
+}
+
+.card.no_bg > div {
+  margin: 1rem 0;
+  font-family: Arial, sans-serif;
+  font-size: 1.1rem;
+  background-color: #eedfc7;
+}
+
+.card.no_bg * {
+  color: dimgray;
+  mix-blend-mode: inherit;
+  line-height: 1.1;
+}
+
+img.stamp {
+  width: 100px;
+  height: auto;
+  float: right;
+}
+
+div#gallery article.card.no_bg div p {
+  /* text-transform: lowercase; */
+  color: rgb(68, 34, 237);
+  text-align: left;
+}
