@@ -1,0 +1,33 @@
+$button-colors: (
+    #ff6b6b, #6bffb3, #6ba6ff, #ffc36b, #da6bff, #6bffea
+);
+
+.button-row {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.color-button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: nth($button-colors, 1);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0);
+    @each $color, $index in $button-colors {
+        &:nth-of-type(#{$index}) {
+            background-color: $color;
+        }
+    }
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+    }
+}
