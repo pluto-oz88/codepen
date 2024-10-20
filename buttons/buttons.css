@@ -1,0 +1,60 @@
+body {
+  background-image: url("../photos/image002.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.button-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 20px;
+}
+
+.color-button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: white;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(0);
+          backdrop-filter: blur(0);
+}
+.color-button:hover:hover {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+
+.color-button:nth-of-type(1) {
+  background-color: #ff6b6b;
+}
+
+.color-button:nth-of-type(2) {
+  background-color: #6bffb3;
+}
+
+.color-button:nth-of-type(3) {
+  background-color: #6ba6ff;
+}
+
+.color-button:nth-of-type(4) {
+  background-color: #ffc36b;
+}
+
+.color-button:nth-of-type(5) {
+  background-color: #da6bff;
+}
+
+.color-button:nth-of-type(6) {
+  background-color: #6bffea;
+}

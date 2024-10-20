@@ -65,6 +65,7 @@
 }
 .wrapper > div:not(:hover) {
   /*animation: zIndexHack 1000ms;*/
+  filter: grayscale(100%);
 
 }
 

@@ -1,5 +1,16 @@
+body {
+  background-image: url("../photos/image002.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
 $button-colors: (
     #ff6b6b, #6bffb3, #6ba6ff, #ffc36b, #da6bff, #6bffea
+);
+
+$butts: (
+    1:#ff6b6b, 2:#6bffb3, 3:#6ba6ff, 4:#ffc36b, 5:#da6bff, 6:#6bffea
 );
 
 .button-row {
@@ -16,18 +27,26 @@ $button-colors: (
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    background-color: nth($button-colors, 1);
     color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(0);
-    @each $color, $index in $button-colors {
-        &:nth-of-type(#{$index}) {
-            background-color: $color;
-        }
-    }
-
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
+    &:hover:hover {
+      color: black;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
     }
 }
+
+// @for $i from 1 through length($button-colors) {
+//     .color-button:nth-of-type(#{$i}) {
+//         background-color: nth($button-colors, $i);
+//     }
+// }
+
+
+@each $i, $but in $butts {
+  .color-button:nth-of-type(#{$i}){
+    background-color: $but;
+  }
+}
+
