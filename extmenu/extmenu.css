@@ -27,9 +27,15 @@
 }
 
 .table_component td {
-    border: 1px solid #dededf;
-    background-color: #ffffff;
+    border: 1px solid #7171c7;
     color: #000000;
     padding: 5px;
 }
 
+.table_component tr {
+  background-color: #eeefc3;
+}
+
+.table_component tr:nth-of-type(even) {
+  background-color: #b1d3ef;
+}
