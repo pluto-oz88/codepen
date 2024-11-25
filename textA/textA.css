@@ -1,0 +1,58 @@
+:root {
+  interpolate-size: allow-keywords;
+}
+
+details {
+  background: hsl(133, 29%, 22%);
+  background-color: #0d5257;
+  border: 1px solid hsl(0 0% 12%);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+details * {
+  margin: 0;
+}
+
+details::details-content {
+  color: hsl(0 0% 100%);
+  font-size: 1.125rem;
+  padding: 0 10px;
+  block-size: 0;
+  background-color: red;
+  background-color: #da291c;
+  transition: block-size 1s, content-visibility 1s;
+  transition-behavior: allow-discrete;
+}
+
+details[open]::details-content {
+  block-size: auto;
+  padding: 10px;
+}
+
+details > p {
+  padding-block: 0.5rem;
+  color: hsl(0 0% 100%);
+  /* writing-mode: vertical-rl; */
+}
+
+summary {
+  color: hsl(0 0% 98%);
+  line-height: 1.3;
+  margin-inline-start: 1rem;
+  list-style-position: outside;
+}
+
+summary::marker {
+  font-size: 1.05em;
+  color: hsl(0 0% 98%);
+  content: "✝>  ";
+  &:hover {
+    background-color: blue;
+  }
+}
+
+details[open] summary::marker {
+  content: "✝";
+}

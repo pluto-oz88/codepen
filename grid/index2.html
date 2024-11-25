@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    .item {
+      height: 150px;
+      background-color: hsl(340 80% 50%);
+      border: 5px solid hsl(340 80% 70%);
+      border-radius: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      max-width: 65rem;
+      margin-inline: auto;
+      margin-block: 6rem;
+
+      container-type: inline-size;
+
+      @container (width >= calc(100px * 2 + 1rem)) {
+        .item {
+          background-color: hsl(60, 80%, 50%);
+          border-color: dodgerblue;
+          grid-column: span 2;
+        }
+      }
+    }
+  </style>
+  <body>
+    <div class="grid">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </body>
+</html>

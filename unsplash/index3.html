@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full-Screen Rotating Images with Link</title>
+    <style>
+      /* Full-screen background image settings */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+      }
+
+      #imageContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: background-image 1s ease-in-out;
+      }
+
+      .overlayText {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      /* Styling for the h1 link */
+      h1 {
+        margin: 0;
+        padding: 0.5em;
+        background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+      }
+
+      h1 a {
+        color: #ffffff;
+        text-decoration: none;
+        opacity: 0.8; /* Slightly transparent */
+      }
+
+      h1 a:hover {
+        opacity: 1; /* Full opacity on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="imageContainer">
+      <div class="overlayText">
+        <h1><a href="page2.html">Download Photo(s)</a></h1>
+      </div>
+    </div>
+
+    <script>
+      // Directory path for images
+      const imageDirectory = "../photos/";
+
+      // Array of image file names
+      const images = [
+        "image001.jpg",
+        "image002.jpg",
+        "image003.jpg",
+        "image004.png",
+        "image005.JPG",
+        "image006.jpg",
+        "image007.jpg",
+      ];
+
+      let currentIndex = 0;
+
+      // Preload images
+      const preloadedImages = [];
+      images.forEach((image, index) => {
+        preloadedImages[index] = new Image();
+        preloadedImages[index].src = imageDirectory + image;
+      });
+
+      // Function to load the next image
+      function loadNextImage() {
+        const imageContainer = document.getElementById("imageContainer");
+        imageContainer.style.backgroundImage = `url(${preloadedImages[currentIndex].src})`;
+        currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+      }
+
+      // Initial load
+      loadNextImage();
+
+      // Reload image every 15 seconds
+      setInterval(loadNextImage, 5000);
+    </script>
+  </body>
+</html>

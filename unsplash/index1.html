@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full-Screen Rotating Images with Overlay Text</title>
+    <style>
+      /* Make the body and html full height */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+      }
+
+      /* Container for the full-screen image */
+      #imageContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* transition: background-image 1s ease-in-out; */
+      }
+
+      /* Overlay text container */
+      .overlayText {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      /* Title styles */
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        padding: 0.5em;
+        background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="imageContainer">
+      <div class="overlayText">
+        <h1>Main Title</h1>
+        <h2>Subtitle</h2>
+        <h3>Additional Info</h3>
+      </div>
+    </div>
+
+    <script>
+      // Directory path for images
+      const imageDirectory = "../photos/";
+
+      // Array of image file names
+      const images = [
+        "image001.jpg",
+        "image002.jpg",
+        "image003.jpg",
+        "image004.png",
+        "image005.JPG",
+        "image006.jpg",
+        "image007.jpg",
+        "stamp.jpg",
+      ];
+
+      let currentIndex = 0;
+
+      // Function to load the next image as background
+      function loadNextImage() {
+        const imageContainer = document.getElementById("imageContainer");
+        imageContainer.style.backgroundImage = `url(${
+          imageDirectory + images[currentIndex]
+        })`;
+        currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+      }
+
+      // Initial load
+      loadNextImage();
+
+      // Reload image every 15 seconds
+      setInterval(loadNextImage, 5000);
+    </script>
+  </body>
+</html>

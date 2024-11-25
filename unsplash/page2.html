@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Gallery</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Gallery container */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        width: 100%;
+        max-width: 1200px;
+      }
+
+      /* Thumbnail and checkbox container */
+      .photo-item {
+        text-align: center;
+      }
+
+      .thumbnail {
+        width: 100%;
+        height: auto;
+        max-width: 150px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .checkbox {
+        margin-top: 10px;
+      }
+
+      /* Button styling */
+      .buttons {
+        margin-top: 20px;
+        display: none; /* Initially hidden */
+        gap: 10px;
+      }
+
+      .buttons button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+      }
+
+      .download-btn {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .clear-btn {
+        background-color: #f44336;
+        color: white;
+      }
+
+      .back-btn {
+        background-color: #555;
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+      }
+
+      .back-btn:hover {
+        background-color: #333;
+      }
+
+      /* Responsive layout */
+      @media (max-width: 600px) {
+        .thumbnail {
+          max-width: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Photo Gallery</h1>
+
+    <div class="gallery" id="gallery">
+      <!-- Thumbnails with checkboxes will be generated here -->
+    </div>
+
+    <div class="buttons" id="buttons">
+      <button
+        class="download-btn"
+        id="downloadBtn"
+        onclick="downloadSelected()"
+      >
+        Download Selected
+      </button>
+      <button class="clear-btn" onclick="clearSelection()">
+        Clear Selection
+      </button>
+    </div>
+
+    <a href="index.html" class="back-btn">Back</a>
+
+    <script>
+      // Image file data
+      const images = [
+        "image001.jpg",
+        "image002.jpg",
+        "image003.jpg",
+        "image004.png",
+        "image005.JPG",
+        "image006.jpg",
+        "image007.jpg",
+        "stamp.jpg",
+      ];
+
+      // Gallery container
+      const gallery = document.getElementById("gallery");
+      const buttons = document.getElementById("buttons");
+
+      // Create thumbnails with checkboxes
+      images.forEach((filename, index) => {
+        const photoItem = document.createElement("div");
+        photoItem.className = "photo-item";
+
+        const img = document.createElement("img");
+        img.src = "../photos/" + filename;
+        img.alt = "Photo " + (index + 1);
+        img.className = "thumbnail";
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "checkbox";
+        checkbox.value = filename;
+        checkbox.addEventListener("change", toggleButtons);
+
+        photoItem.appendChild(img);
+        photoItem.appendChild(checkbox);
+        gallery.appendChild(photoItem);
+      });
+
+      // Toggle the visibility of the download and clear buttons based on selection
+      function toggleButtons() {
+        const checkboxes = document.querySelectorAll(".checkbox:checked");
+        buttons.style.display = checkboxes.length > 0 ? "flex" : "none";
+      }
+
+      // Download selected images
+      function downloadSelected() {
+        const selectedImages = Array.from(
+          document.querySelectorAll(".checkbox:checked")
+        ).map((cb) => cb.value);
+
+        selectedImages.forEach((filename) => {
+          const link = document.createElement("a");
+          link.href = "../photos/" + filename;
+          link.download = filename;
+          link.click();
+        });
+      }
+
+      // Clear all selections
+      function clearSelection() {
+        document
+          .querySelectorAll(".checkbox")
+          .forEach((cb) => (cb.checked = false));
+        buttons.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pulse</title>
+    <style>
+      .live {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%);
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+        background-color: #ff69b4;
+        animation: pulse infinite 1500ms;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: #ff69b4 0 0 0 0;
+          left: 50%;
+        }
+        /* 20% {
+          box-shadow: #69ff8a 0 0 0 16px;
+          left: 40%;
+        }
+        40% {
+          box-shadow: #d18c4b 0 0 0 0;
+          left: 30%;
+        }
+        60% {
+          box-shadow: #4233e6 0 0 0 16px;
+          left: 20%;
+        } */
+        80% {
+          box-shadow: #888a11 0 0 0 16px;
+          left: 0%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="live"></div>
+  </body>
+</html>

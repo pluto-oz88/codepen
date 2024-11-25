@@ -1,0 +1,65 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --marg: calc(1px + (9 * ((100vw - 390px) / 810)));
+}
+
+body {
+  background: url("../photos/image006a.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: contain;
+}
+
+.menubox {
+  margin-top: 40vh;
+  width: fit-content;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: solid 1px rgba(255, 253, 253, 30%);
+  margin-inline: auto;
+  border-radius: 4px;
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+  color: rgb(249, 247, 247);
+  font-weight: bold;
+  font-size: 30px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--marg);
+  gap: 10px;
+}
+
+li {
+  display: inline-block;
+  list-style: none;
+  /* border: solid 1px rgb(45, 14, 244); */
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 50%; /* Start at the middle */
+  bottom: 0; /* Position at the bottom of the <li> */
+  height: 3px; /* Thickness of the line */
+  width: 0; /* Initially no width */
+  background: rgb(252, 252, 252); /* Line color */
+  transition: all 0.25s ease-out; /* Smooth transition */
+}
+
+a:hover::after {
+  left: 0; /* Expand from the middle to start from the left */
+  width: 100%; /* Full width */
+}

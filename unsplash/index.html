@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotating Local Images</title>
+  </head>
+  <body>
+    <h1>Rotating Local Images</h1>
+    <img
+      id="rotatingImage"
+      src=""
+      alt="Rotating Image"
+      width="800"
+      height="600"
+    />
+
+    <script>
+      // Directory path for images
+      const imageDirectory = "../photos/";
+
+      // Array of image file names
+      const images = [
+        "image001.jpg",
+        "image002.jpg",
+        "image003.jpg",
+        "image004.png",
+        "image005.JPG",
+        "image006.jpg",
+        "image007.jpg",
+      ];
+
+      let currentIndex = 0;
+
+      // Function to load the next image
+      function loadNextImage() {
+        const imageElement = document.getElementById("rotatingImage");
+        imageElement.src = imageDirectory + images[currentIndex];
+        currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+      }
+
+      // Initial load
+      loadNextImage();
+
+      // Reload image every 5 seconds
+      setInterval(loadNextImage, 5000);
+    </script>
+  </body>
+</html>
