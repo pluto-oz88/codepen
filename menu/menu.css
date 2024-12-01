@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  /* outline: 2px solid lime; */
+  /* background-color: hsl(0 100% 50% / 0.1); */
+}
+
 :root {
   --marg: calc(1px + (9 * ((100vw - 390px) / 810)));
 }
